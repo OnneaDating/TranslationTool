@@ -3,7 +3,7 @@ Free Online Translation tool
 A Resource editor that is free and you got the code to it.
 You can edit multiple languages same time in thsi tool
 
-Also ChatGPT trranslates for you 10 rows per request.
+Also ChatGPT translates for you 10 rows per request.
 
 You will need to get a API key, and you get food help for translations.
 
