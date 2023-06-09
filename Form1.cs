@@ -218,7 +218,7 @@ public partial class Form1 : Form
             string payload = $@"
         {{
             ""prompt"": ""{text}"",
-            ""max_tokens"": 1000,
+            ""max_tokens"": 2000,
             ""temperature"": 0.7,
             ""top_p"": 1,
             ""n"": 1,
@@ -236,7 +236,7 @@ public partial class Form1 : Form
                 responseContent = await response.Content.ReadAsStringAsync();
                 model =  JsonSerializer.Deserialize<ChatGPT>(responseContent);
   
-                if (model.usage.total_tokens >= 1000)
+                if (model.usage.total_tokens >= 2000)
                 {
                     MessageBox.Show("Errror", $"too many tokens {model.usage.total_tokens}");
                 }
@@ -323,7 +323,7 @@ public partial class Form1 : Form
         }
 
         int iRows = 0;
-        question = $"Please translate following phrase from {fromLanguage} into {toLanguage} and create  only a trimmed without line breaks a json array  of the phrases as an answer including the columns Id, original and translated<br>";
+        question = $"Please translate following phrases from {fromLanguage} into {toLanguage} and create only a extremly trimmed json array without line breaks as an answer including the columns 'Id', 'Original' and 'Translated'<br>";
         foreach (DataGridViewRow row in GrdResource.Rows)
         {
 
