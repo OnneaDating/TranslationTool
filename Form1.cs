@@ -261,9 +261,6 @@ public partial class Form1 : Form
         return result;
     }
 
-    private async void button1_Click(object sender, EventArgs e)
-    {
-    }
     public async Task<IList<Translation>> DoWork(CancellationToken token, string question)
     {
         await Task.Delay(500, token);
