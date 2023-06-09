@@ -41,3 +41,10 @@ Supported languages
 Easy to add more.
 
 ![alt text](https://github.com/OnneaDating/TranslationTool/blob/master/Images/Screenshot.png?raw=true)
+
+How to use
+
+Resource files must be named Resource.resx and languages Resource.de.resx
+
+Then open program and welect the directory where Resx are.
+Choose translate from and translate to and then press translate and ChatGPT translate for you
