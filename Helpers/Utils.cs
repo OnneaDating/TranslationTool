@@ -21,8 +21,6 @@ internal static class Utils
                 return "French";
             case "ru":
                 return "Russian";
-            case "ua":
-                return "Ukrainian";
             case "it":
                 return "Italian";
             case "ja":
@@ -78,7 +76,7 @@ internal static class Utils
             case "sw":
                 return "Swahili";
             case "ro":
-                return "Malay";
+                return "Romanian";
             case "tr":
                 return "Turkish";
             case "vi":
