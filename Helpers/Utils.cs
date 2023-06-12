@@ -80,7 +80,7 @@ internal static class Utils
             case "tr":
                 return "Turkish";
             case "vi":
-                return "Vietnam";
+                return "Vietnamese";
             case "az":
                 return "Azerbaijani";
             case "bn":
