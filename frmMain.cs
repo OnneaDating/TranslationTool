@@ -12,11 +12,11 @@ using System.Text;
 using System.Text.Json;
 using System.Windows.Forms;
 
-public partial class Form1 : Form
+public partial class frmMain : Form
 {
     private string _directory = "";
     private bool _generated = false;
-    public Form1()
+    public frmMain()
     {
         InitializeComponent();
     }
@@ -53,7 +53,7 @@ public partial class Form1 : Form
         // Loop through each file path
         var dataTable = new DataTable();
         int i = 0;
-   
+
         bool foundOne = false;
         string mainFile = "";
         foreach (string filePath in filePaths)
@@ -226,7 +226,10 @@ public partial class Form1 : Form
         }}";
             var apiKey = txtAPIKey.Text;
             string responseContent = "";
-            using (HttpClient client = new HttpClient())
+            using (HttpClient client = new HttpClient(new HttpClientHandler
+            {
+                UseProxy = false
+            }))
             {
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -234,8 +237,8 @@ public partial class Form1 : Form
                 HttpResponseMessage response = await client.PostAsync(url, new StringContent(payload, Encoding.UTF8, "application/json"));
 
                 responseContent = await response.Content.ReadAsStringAsync();
-                model =  JsonSerializer.Deserialize<ChatGPT>(responseContent);
-  
+                model = JsonSerializer.Deserialize<ChatGPT>(responseContent);
+
                 if (model.usage.total_tokens >= 2000)
                 {
                     MessageBox.Show("Errror", $"too many tokens {model.usage.total_tokens}");
@@ -249,7 +252,7 @@ public partial class Form1 : Form
                         {
                             resstring += val.text;
                         }
-                        result =  JsonSerializer.Deserialize<IList<Translation>>(resstring);
+                        result = JsonSerializer.Deserialize<IList<Translation>>(resstring);
                     }
                 }
             }
@@ -271,13 +274,14 @@ public partial class Form1 : Form
     {
         RegistryKey myKey = Registry.CurrentUser.OpenSubKey(@"Software\TranslationTool", true);
 
-        if(myKey == null) {
+        if (myKey == null)
+        {
             myKey = Registry.CurrentUser.CreateSubKey(@"Software\TranslationTool", true);
         }
 
         if (myKey != null)
         {
-            myKey.SetValue("APIKey",txtAPIKey.Text);
+            myKey.SetValue("APIKey", txtAPIKey.Text);
         }
         BtnTranslate.Enabled = false;
         cboFromLanguage.Enabled = false;
@@ -357,11 +361,11 @@ public partial class Form1 : Form
             GrdResource.CurrentCell = GrdResource.Rows[0].Cells[selectedToLanguage.Value];
             GrdResource.Columns[selectedToLanguage.Value].Selected = true;
         }
-        if (cboToLanguage.Text.Length>0 && cboFromLanguage.Text.Length> 0)
+        if (cboToLanguage.Text.Length > 0 && cboFromLanguage.Text.Length > 0)
         {
             BtnTranslate.Enabled = true;
         }
-        
+
     }
 
     private void cboFromLanguage_SelectedIndexChanged(object sender, EventArgs e)
@@ -381,7 +385,7 @@ public partial class Form1 : Form
     private void Form1_Load(object sender, EventArgs e)
     {
         BtnTranslate.Enabled = false;
-        RegistryKey myKey = Registry.CurrentUser.OpenSubKey(@"Software\TranslationTool", false);  
+        RegistryKey myKey = Registry.CurrentUser.OpenSubKey(@"Software\TranslationTool", false);
         if (myKey != null)
         {
             string value = (String)myKey.GetValue("APIKey");
@@ -389,6 +393,18 @@ public partial class Form1 : Form
             {
                 txtAPIKey.Text = value.ToString();
             }
+        }
+    }
+
+    private void GrdResource_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+    {
+        if (GrdResource.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == null || string.IsNullOrWhiteSpace(GrdResource.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString()))
+        {
+            // Set the cell's back color to red for empty cells
+            GrdResource.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
+        } else
+        {
+            GrdResource.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.White;
         }
     }
 }

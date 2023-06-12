@@ -1,6 +1,6 @@
 ﻿namespace OnneaRE
 {
-    partial class Form1
+    partial class frmMain
     {
         /// <summary>
         ///  Required designer variable.
@@ -31,7 +31,7 @@
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             GrdResource = new DataGridView();
             BtnLoad = new Button();
             BtnSave = new Button();
@@ -75,6 +75,7 @@
             GrdResource.Size = new Size(776, 323);
             GrdResource.TabIndex = 0;
             GrdResource.CellClick += GrdResource_CellClick;
+            GrdResource.CellFormatting += GrdResource_CellFormatting;
             GrdResource.CellPainting += GrdResource_CellPainting;
             GrdResource.RowStateChanged += GrdResource_RowStateChanged;
             // 
@@ -135,6 +136,20 @@
             imageList.Images.SetKeyName(23, "Resource.nb.resx");
             imageList.Images.SetKeyName(24, "Resource.pl.resx");
             imageList.Images.SetKeyName(25, "Resource.uk.resx");
+            imageList.Images.SetKeyName(26, "Resource.fa.resx");
+            imageList.Images.SetKeyName(27, "Resource.he.resx");
+            imageList.Images.SetKeyName(28, "Resource.cs.resx");
+            imageList.Images.SetKeyName(29, "Resource.el.resx");
+            imageList.Images.SetKeyName(30, "Resource.hu.resx");
+            imageList.Images.SetKeyName(31, "Resource.ko.resx");
+            imageList.Images.SetKeyName(32, "Resource.kn.resx");
+            imageList.Images.SetKeyName(33, "Resource.ms.resx");
+            imageList.Images.SetKeyName(34, "Resource.ro.resx");
+            imageList.Images.SetKeyName(35, "Resource.sw.resx");
+            imageList.Images.SetKeyName(36, "Resource.tr.resx");
+            imageList.Images.SetKeyName(37, "Resource.vi.resx");
+            imageList.Images.SetKeyName(38, "Resource.bn.resx");
+            imageList.Images.SetKeyName(39, "Resource.az.resx");
             // 
             // txtNameSpace
             // 
@@ -215,7 +230,7 @@
             lblAPIKEY.TabIndex = 13;
             lblAPIKEY.Text = "API KEY";
             // 
-            // Form1
+            // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -232,7 +247,7 @@
             Controls.Add(BtnSave);
             Controls.Add(BtnLoad);
             Controls.Add(GrdResource);
-            Name = "Form1";
+            Name = "frmMain";
             Text = "Simple Translation Tool";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)GrdResource).EndInit();

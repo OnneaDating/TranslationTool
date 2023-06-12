@@ -61,6 +61,34 @@ internal static class Utils
                 return "Urdu";
             case "zh":
                 return "Chinese (mandarian)";
+            case "cs":
+                return "Czech";
+            case "el":
+                return "Greek";
+            case "fa":
+                return "Farsi";
+            case "he":
+                return "Hebrew";
+            case "kn":
+                return "Kannada";
+            case "hu":
+                return "Hungarian";
+            case "ms":
+                return "Malay";
+            case "sw":
+                return "Swahili";
+            case "ro":
+                return "Malay";
+            case "tr":
+                return "Turkish";
+            case "vi":
+                return "Vietnam";
+            case "az":
+                return "Azerbaijani";
+            case "bn":
+                return "Bengali";
+            case "ko":
+                return "Korean";
             default:
                 return "English";
         }
