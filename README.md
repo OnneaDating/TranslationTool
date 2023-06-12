@@ -14,31 +14,45 @@ Supported languages
 
 * Finnish
 * Swedish
-* German";
-* Spanish";
-* French";
-* Russian";
-* Ukrainian";
-* Italian";
-* Japanese";
-* Arabian";
-* Thai";
-* Belarusian";
-* Bulgarian";
-* Danish";
-* Estonian";
-* Hindi";
-* Indonesian";
-* Lithuanian";
-* Icelandic";
-* Latvian";
-* Norwegian (bokmål)";
-* Polish";
-* Portuguese";
-* Ukranian";
-* Urdu";
-* Chinese (mandarian)";
-* English";
+* German
+* Spanish
+* French
+* Russian
+* Ukrainian
+* Italian
+* Japanese
+* Arabian
+* Thai
+* Belarusian
+* Bulgarian
+* Danish
+* Estonian
+* Hindi
+* Indonesian
+* Lithuanian
+* Icelandic
+* Latvian
+* Norwegian (bokmål)
+* Polish
+* Portuguese
+* Ukranian
+* Urdu
+* Chinese (mandarian)
+* English
+* Czech
+* Greek
+* Farsi
+* Hebrew
+* Kannada
+* Hungarian
+* Malay
+* Swahili
+* Romanian
+* Turkish
+* Vietnam
+* Azerbaijani
+* Bengali
+* Korean
 
 Easy to add more.
 
